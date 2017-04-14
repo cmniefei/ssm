@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <artifactId>ssm</artifactId>
-  <packaging>war</packaging>
-  <name>ssm</name>
-  <url>http://maven.apache.org</url>
-  
-  <distributionManagement>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>ssm</artifactId>
+	<packaging>war</packaging>
+	<name>ssm</name>
+	<url>http://maven.apache.org</url>
+
+	<distributionManagement>
 		<repository>
 			<id>limaven</id>
 			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
@@ -18,10 +18,15 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
-  
-  
-  <dependencies>
-    <dependency>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>com.nfcm</groupId>
+			<artifactId>common</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
 		</dependency>
@@ -109,10 +114,8 @@
 		<!-- <dependency> <groupId>org.thymeleaf</groupId> <artifactId>thymeleaf-spring4</artifactId> 
 			<version>2.1.4.RELEASE</version> </dependency> <dependency> <groupId>org.thymeleaf</groupId> 
 			<artifactId>thymeleaf</artifactId> </dependency> -->
-		<!-- <dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-extras</artifactId>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.apache.tiles</groupId> <artifactId>tiles-extras</artifactId> 
+			</dependency> -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
@@ -127,7 +130,7 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
@@ -163,10 +166,10 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 		</dependency>
-  </dependencies>
-  <build>
-    <finalName>ssm</finalName>
-    <plugins>
+	</dependencies>
+	<build>
+		<finalName>ssm</finalName>
+		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
@@ -197,12 +200,16 @@
 					</compilerArguments>
 				</configuration>
 			</plugin>
-
+ 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-install-plugin</artifactId>
-				<version>2.5.2</version>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
 			</plugin>
+
 		</plugins>
-  </build>
+	</build>
 </project>
