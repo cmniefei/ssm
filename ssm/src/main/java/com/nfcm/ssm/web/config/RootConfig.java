@@ -18,7 +18,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @ComponentScan(basePackages={"com.nfcm"},excludeFilters={@Filter(type=FilterType.ANNOTATION,classes=EnableWebMvc.class)})
-@Import(value={})
+@Import(value={MybatisConfig.class})
 @PropertySource(value={"classpath:properties/db.properties"})
 public class RootConfig {
 	
