@@ -7,24 +7,15 @@
 	<name>common</name>
 	<url>http://maven.apache.org</url>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
 	<parent>
 		<groupId>com.nfcm</groupId>
 		<artifactId>parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${ssm_version}</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
-
+	
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-
+		
 	</dependencies>
 	<build>
 		

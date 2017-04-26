@@ -2,7 +2,6 @@ package com.nfcm.ssm.web.config;
 
 import javax.sql.DataSource;
 
-import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,6 +13,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import com.alibaba.druid.pool.DruidDataSource;
 
 
 @Configuration
@@ -38,7 +39,7 @@ public class RootConfig {
 	 */
 	@Bean
 	public DataSource dataSource(){
-		BasicDataSource ds = new BasicDataSource();
+		DruidDataSource ds = new DruidDataSource();
 		ds.setDriverClassName(env.getProperty("mysql.driverClass"));
 		ds.setUrl(env.getProperty("mysql.url"));
 		ds.setUsername(env.getProperty("mysql.username"));
